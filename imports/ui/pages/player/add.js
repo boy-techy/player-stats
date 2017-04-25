@@ -13,11 +13,14 @@ Template['playerInfo'].events({
 		formData.map(function (item, key) {
 			playerData[item.name] = item.value;
 		});
+		playerData['upvoteCount'] = 0;
+		playerData['downvoteCount'] = 0;
+
 		Meteor.call('insertPlayerData', { playerData }, function (err, res) {
 			if (err) {
 				return;
 			}
-
+			FlowRouter.go('/');
 		})
 	}
 })

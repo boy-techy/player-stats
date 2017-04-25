@@ -23,3 +23,7 @@ shell-server@0.2.3            # Server-side component of the `meteor shell` comm
 kadira:flow-router
 kadira:blaze-layout
 twbs:bootstrap
+fortawesome:fontawesome
+accounts-ui
+accounts-password
+chrismbeckett:toastr
