@@ -7,16 +7,17 @@ Template['playerInfo'].onCreated(function() {
 Template['playerInfo'].events({
 	'submit #addPlayerInfo' : function (event, template) {
 		event.preventDefault();
-		let playerData = {}; 
+		let playerData = {};
 		let formData = $('#addPlayerInfo').serializeArray();
 
 		formData.map(function (item, key) {
 			playerData[item.name] = item.value;
 		});
+		Meteor.call('insertPlayerData', { playerData }, function (err, res) {
+			if (err) {
+				return;
+			}
 
-		console.log("The Player Data", playerData);
-		Meteor.call('add',{ playerData }, function (err, res) {
-			console.log(err, res);
 		})
 	}
 })

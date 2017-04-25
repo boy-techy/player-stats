@@ -1,1 +1,1 @@
-import './hello.js';
+import './stats.js';

@@ -1,7 +1,8 @@
 import { Meteor } from 'meteor/meteor';
+import { PlayerStats } from  '/lib/collections';
 
 Meteor.methods({
-	'add': function (data) {
-		console.log(data);
-	} 
+	'insertPlayerData': function (data) {
+		PlayerStats.insert(data);
+	}
 })
