@@ -4,8 +4,8 @@
   </div>
 
   {{#if playerAdmin}}
-    <div class="add-palyer">
-      <button type="button" name="add-player" onclick="FlowRouter.go('/add')">Add a new Player</button>
+    <div class="pull-right">
+      <button type="button" class="btn btn-primary" name="add-player" onclick="FlowRouter.go('/add')">Add a new Player</button>
     </div>
   {{/if}}
 
@@ -22,25 +22,25 @@
           <th>Bowling Style</th>
           <th>IPL Team</th>
           <th>Seasons Played</th>
-          <th>Number of 50s played</th>
-          <th>Upvote stats</th>
-          <th>Downvote stats</th>
+          <th>50s</th>
+          <th>Upvote</th>
+          <th>Downvote</th>
         </tr>
       </thead>
       <tbody>
         {{#each playerStats}}
         <tr class="row">
-          <td>{{playerData.name}}</td>
-          <td>{{playerData.dob}}</td>
-          <td>{{playerData.height}}</td>
-          <td>{{playerData.role}}</td>
-          <td>{{playerData.battingStyle}}</td>
-          <td>{{playerData.bowlingStyle}}</td>
-          <td>{{playerData.iplTeam}}</td>
-          <td>{{playerData.seasonsPlayed}}</td>
-          <td>{{playerData.numOf50s}}</td>
-          <td><i id="upvote-stats" class="fa fa-thumbs-up" aria-hidden="true"></i> &nbsp; {{playerData.upvoteCount}}</td>
-          <td><i id="downvote-stats" class="fa fa-thumbs-down" aria-hidden="true"></i> &nbsp; {{playerData.downvoteCount}}</td>
+          <td>{{name}}</td>
+          <td>{{dob}}</td>
+          <td>{{height}}</td>
+          <td>{{role}}</td>
+          <td>{{battingStyle}}</td>
+          <td>{{bowlingStyle}}</td>
+          <td>{{iplTeam}}</td>
+          <td>{{seasonsPlayed}}</td>
+          <td>{{numOf50s}}</td>
+          <td><i id="upvote-stats" class="fa fa-thumbs-up" aria-hidden="true"></i> &nbsp; {{upvoteCount}}</td>
+          <td><i id="downvote-stats" class="fa fa-thumbs-down" aria-hidden="true"></i> &nbsp; {{downvoteCount}}</td>
         </tr>
         {{/each}}
       </tbody>

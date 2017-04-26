@@ -1,7 +1,6 @@
 import './add.html';
 
 Template['playerInfo'].onCreated(function() {
-	console.log("Created");
 });
 
 Template['playerInfo'].events({
@@ -16,11 +15,12 @@ Template['playerInfo'].events({
 		playerData['upvoteCount'] = 0;
 		playerData['downvoteCount'] = 0;
 
-		Meteor.call('insertPlayerData', { playerData }, function (err, res) {
+		Meteor.call('insertPlayerData', playerData, function (err, res) {
 			if (err) {
+				toastr.error(err.error, err.reason);
 				return;
 			}
 			FlowRouter.go('/');
-		})
+		});
 	}
 })
