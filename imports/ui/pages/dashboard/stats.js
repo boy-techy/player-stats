@@ -10,6 +10,9 @@ Template.stats.onCreated(function statsOnCreated() {
 Template.stats.helpers({
   playerExists: function () {
     return PlayerStats.find({}).fetch() ? true : false;
+  },
+  playerStats: function () {
+    return PlayerStats.find({});
   }
 });
 
