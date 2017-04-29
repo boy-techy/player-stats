@@ -1,0 +1,48 @@
+<template name="stats">
+
+  {{#if playerAdmin}}
+    <div class="pull-right">
+      <button type="button" class="btn btn-primary" name="add-player" onclick="FlowRouter.go('/add')">Add a new Player</button>
+    </div>
+  {{/if}}
+
+  {{#if playerExists}}
+    <table class="table">
+      <thead class="thead-inverse">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>DOB</th>
+          <th>Height</th>
+          <th>Role</th>
+          <th>Batting Style</th>
+          <th>Bowling Style</th>
+          <th>IPL Team</th>
+          <th>Seasons Played</th>
+          <th>50s</th>
+          <th>Upvote</th>
+          <th>Downvote</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each playerStats}}
+        <tr class="row">
+          <td>{{name}}</td>
+          <td>{{dob}}</td>
+          <td>{{height}}</td>
+          <td>{{role}}</td>
+          <td>{{battingStyle}}</td>
+          <td>{{bowlingStyle}}</td>
+          <td>{{iplTeam}}</td>
+          <td>{{seasonsPlayed}}</td>
+          <td>{{numOf50s}}</td>
+          <td><i id="upvote-stats" class="fa fa-thumbs-up" aria-hidden="true"></i> &nbsp; {{upvoteCount}}</td>
+          <td><i id="downvote-stats" class="fa fa-thumbs-down" aria-hidden="true"></i> &nbsp; {{downvoteCount}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    Admin have not added any users yet.
+  {{/if}}
+</template>
