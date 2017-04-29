@@ -13,6 +13,12 @@ Template.stats.helpers({
   },
   playerStats: function () {
     return PlayerStats.find({});
+  },
+  strikeRate: function () {
+    return ((this.totalRuns/this.totalBalls)*100).toFixed(2);
+  },
+  avg: function () {
+    return (this.totalRuns/this.inningsPlayed).toFixed(2);
   }
 });
 
