@@ -3,9 +3,11 @@
     {{> loginButtons}}
   </div>
 
-  <div class="pull-right">
-    <button type="button" class="btn btn-primary" name="add-player" onclick="FlowRouter.go('/add')">Add a new Player</button>
-  </div>
+  {{#if playerAdmin}}
+    <div class="pull-right">
+      <button type="button" class="btn btn-primary" name="add-player" onclick="FlowRouter.go('/add')">Add a new Player</button>
+    </div>
+  {{/if}}
 
   {{#if playerExists}}
     <table class="table">

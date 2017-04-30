@@ -5,6 +5,10 @@ import './stats.html';
 import './stats.css';
 
 Template.stats.onCreated(function statsOnCreated() {
+  let that = this;
+  this.autorun(function () {
+    that.subscribe('userData');
+  });
 });
 
 Template.stats.helpers({
@@ -19,7 +23,13 @@ Template.stats.helpers({
   },
   avg: function () {
     return (this.totalRuns/this.inningsPlayed).toFixed(2);
-  }
+  },
+  playerAdmin: function () {
+    if (Meteor.user() === null) {
+      return false;
+    }
+    return Meteor.user() && Meteor.user().isAdmin ? true : false;
+  },
 });
 
 Template.stats.events({
